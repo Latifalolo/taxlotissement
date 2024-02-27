@@ -2,22 +2,28 @@ package m2.fst.taxlotissement.bean;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 import java.util.Date;
 @Entity
 public class TaxLotissement {
     @Id
     private long id;
-    private String local;
+    @OneToOne
+
+    private Redevoir redevoir;
+    @OneToOne
+    private Local local;
     private Date datePresentation;
     private double surface;
     private double montant;
+    private double montantBase;
 
 
-    public String getLocal() {
+    public Local getLocal() {
         return local;
     }
-    public void setLocal(String local) {
+    public void setLocal(Local local) {
         this.local = local;
     }
 
@@ -48,5 +54,21 @@ public class TaxLotissement {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Redevoir getRedevoir() {
+        return redevoir;
+    }
+
+    public void setRedevoir(Redevoir redevoir) {
+        this.redevoir = redevoir;
+    }
+
+    public double getMontantBase() {
+        return montantBase;
+    }
+
+    public void setMontantBase(double montantBase) {
+        this.montantBase = montantBase;
     }
 }
